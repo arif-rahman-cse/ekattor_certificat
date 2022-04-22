@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from GeoCodeBD.models import Division, District, Upazila, Union
+
 BLOOD_GROUP_CHOICES = (
     ('', '-- Select --'),
     ('A+', 'A+'),
@@ -35,7 +37,6 @@ RESIDENCE_CHOICES = (
 
 # Create your models here.
 class UserEntry(models.Model):
-
     # Personal Information
     name_en = models.CharField(max_length=200)
     name_bn = models.CharField(max_length=200)
@@ -59,10 +60,10 @@ class UserEntry(models.Model):
     present_address_bn = models.CharField(max_length=200, blank=True, null=True)
     present_area_village_en = models.CharField(max_length=200, blank=True, null=True)
     present_area_village_bn = models.CharField(max_length=200, blank=True, null=True)
-    present_division = models.CharField(max_length=100, blank=True, null=True)
-    present_district = models.CharField(max_length=100, blank=True, null=True)
-    present_thana = models.CharField(max_length=100, blank=True, null=True)
-    present_post_office = models.CharField(max_length=100, blank=True, null=True)
+    present_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING, related_name='present_division', db_column='present_division',)
+    present_district = models.ForeignKey(District, on_delete=models.DO_NOTHING, related_name='present_district', db_column='present_district',)
+    present_thana = models.ForeignKey(Upazila, on_delete=models.DO_NOTHING, related_name='present_thana', db_column='present_thana',)
+    present_post_office = models.ForeignKey(Union, on_delete=models.DO_NOTHING, blank=True, null=True, related_name='present_post_office', db_column='present_post_office',)
     present_post_code = models.CharField(max_length=100, blank=True, null=True)
     residence_status = models.CharField(max_length=100, blank=True, null=True, choices=RESIDENCE_CHOICES)
 
@@ -71,10 +72,10 @@ class UserEntry(models.Model):
     permanent_address_bn = models.CharField(max_length=200, blank=True, null=True)
     permanent_area_village_en = models.CharField(max_length=200, blank=True, null=True)
     permanent_area_village_bn = models.CharField(max_length=200, blank=True, null=True)
-    permanent_division = models.CharField(max_length=100, blank=True, null=True)
-    permanent_district = models.CharField(max_length=100, blank=True, null=True)
-    permanent_thana = models.CharField(max_length=100, blank=True, null=True)
-    permanent_post_office = models.CharField(max_length=100, blank=True, null=True)
+    permanent_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING, db_column='permanent_division', )
+    permanent_district = models.ForeignKey(District, on_delete=models.DO_NOTHING, db_column='permanent_district', )
+    permanent_thana = models.ForeignKey(Upazila, on_delete=models.DO_NOTHING, db_column='permanent_thana', )
+    permanent_post_office = models.ForeignKey(Union, on_delete=models.DO_NOTHING, blank=True, null=True, db_column='permanent_post_office', )
     permanent_post_code = models.CharField(max_length=100, blank=True, null=True)
 
     # Document
@@ -85,9 +86,8 @@ class UserEntry(models.Model):
     status = models.BooleanField(default=True)
     created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, null=True, auto_now=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_created_by', blank=True, null=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_created_by', blank=True,
+                                   null=True)
 
     def __str__(self):
         return self.name_en
-
-

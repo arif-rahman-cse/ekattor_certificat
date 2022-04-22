@@ -13,11 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+
+from ekattor_certificat import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('dashboard.urls')),
-    path('user_entry/', include('user_entry.urls')),
-]
+                  path('admin/', admin.site.urls),
+                  path('', include('dashboard.urls')),
+                  path('user_entry/', include('user_entry.urls')),
+                  path('geo-data-bd/', include('GeoCodeBD.urls')),
+
+                  path('login/', auth_views.LoginView.as_view(template_name='login/login_page.html'), name='login'),
+                  path('login/', auth_views.LogoutView.as_view(template_name='login/login_page.html'), name='logout'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

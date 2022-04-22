@@ -1,15 +1,20 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
 # Create your views here.
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, UpdateView
 
-from user_entry.forms import UserEntryCreateForm
+from GeoCodeBD.models import District, Upazila
+from user_entry.forms import UserEntryCreateForm, UserEntryUpdateForm
 from user_entry.models import UserEntry
 
 
+@login_required
 def add_new_user_data(request):
     template_name = 'user_entry/add_new_user_data.html'
 
@@ -18,12 +23,10 @@ def add_new_user_data(request):
         user_data_form = UserEntryCreateForm(None)
 
     elif request.method == 'POST':
-        print("Post called")
         user_data_form = UserEntryCreateForm(request.POST)
         if user_data_form.is_valid():
             user_data = user_data_form.save(commit=False)
-            print('id: ', request.user.id)
-            user_data.created_by = User.objects.get(id=request.user.id)
+            user_data.created_by = request.user
             user_data.status = True
             user_data.save()
 
@@ -42,7 +45,7 @@ def add_new_user_data(request):
     })
 
 
-class UserDataListView(ListView, ):
+class UserDataListView(LoginRequiredMixin, ListView, ):
     model = UserEntry  # Model I want to Covert to List
     template_name = 'user_entry/user_data_list.html'  # Template Name
     context_object_name = 'user_data'  # Change default name of objectList
@@ -55,3 +58,28 @@ class UserDataListView(ListView, ):
         context["nav_bar"] = "user_data_list"
         context['user_data'] = self.model.objects.all()
         return context
+
+
+class UserDataUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = UserEntry
+    form_class = UserEntryUpdateForm
+    success_url = reverse_lazy('user-data-list')
+    template_name = 'user_entry/edit_user_data.html'
+    success_message = "User Data Updated Successfully"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Update Product Information"
+        context["nav_bar"] = "product_list"
+        return context
+
+
+@login_required
+def user_profile_preview(request, pk):
+    template_name = 'user_entry/user_profile_page.html'
+
+    return render(request, template_name, {
+        'user_data': UserEntry.objects.get(pk=pk),
+        'title': 'User Profile Preview',
+        'nav_bar': 'user_profile_preview'
+    })

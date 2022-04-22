@@ -27,36 +27,21 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.name_en|as_crispy_field }}
+                                        {{ form.name_en|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.name_bn|as_crispy_field }}
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.care_of|as_crispy_field }}
+                                        {{ form.name_bn|as_crispy_field }}
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="row">
-
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.care_of_name_en|as_crispy_field }}
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.care_of_name_bn|as_crispy_field }}
+                                        {{ form.care_of|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -66,12 +51,27 @@
 
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.mother_name_en|as_crispy_field }}
+                                        {{ form.care_of_name_en|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.mother_name_bn|as_crispy_field }}
+                                        {{ form.care_of_name_bn|as_crispy_field }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.mother_name_en|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.mother_name_bn|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -80,12 +80,12 @@
 
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.email|as_crispy_field }}
+                                        {{ form.email|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.phone|as_crispy_field }}
+                                        {{ form.phone|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -105,26 +105,12 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.present_address_en|as_crispy_field }}
+                                        {{ form.present_address_en|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.present_address_bn|as_crispy_field }}
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.present_area_village_en|as_crispy_field }}
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.present_area_village_bn|as_crispy_field }}
+                                        {{ form.present_address_bn|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -133,26 +119,12 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.present_division|as_crispy_field }}
+                                        {{ form.present_area_village_en|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.present_district|as_crispy_field }}
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.present_thana|as_crispy_field }}
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.present_post_office|as_crispy_field }}
+                                        {{ form.present_area_village_bn|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -161,12 +133,40 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.present_post_code|as_crispy_field }}
+                                        {{ form.present_division|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.residence_status|as_crispy_field }}
+                                        {{ form.present_district|as_crispy_field }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.present_thana|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.present_post_office|as_crispy_field }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.present_post_code|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.residence_status|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -185,12 +185,12 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.date_of_birth|as_crispy_field }}
+                                        {{ form.date_of_birth|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.gender|as_crispy_field }}
+                                        {{ form.gender|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -199,17 +199,7 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.blood_group|as_crispy_field }}
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.nid_no|as_crispy_field }}
+                                        {{ form.blood_group|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -219,7 +209,17 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.birth_reg_no|as_crispy_field }}
+                                        {{ form.nid_no|as_crispy_field }}
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.birth_reg_no|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -239,26 +239,12 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.permanent_address_en|as_crispy_field }}
+                                        {{ form.permanent_address_en|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.permanent_address_bn|as_crispy_field }}
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.permanent_area_village_en|as_crispy_field }}
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.permanent_area_village_bn|as_crispy_field }}
+                                        {{ form.permanent_address_bn|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -267,26 +253,12 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.permanent_division|as_crispy_field }}
+                                        {{ form.permanent_area_village_en|as_crispy_field }}
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.permanent_district|as_crispy_field }}
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.permanent_thana|as_crispy_field }}
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        {{ user_data_form.permanent_post_office|as_crispy_field }}
+                                        {{ form.permanent_area_village_bn|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -295,7 +267,35 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        {{ user_data_form.permanent_post_code|as_crispy_field }}
+                                        {{ form.permanent_division|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.permanent_district|as_crispy_field }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.permanent_thana|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.permanent_post_office|as_crispy_field }}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        {{ form.permanent_post_code|as_crispy_field }}
                                     </div>
                                 </div>
 
@@ -315,14 +315,14 @@
 
                             <div class="row">
                                 <div class="col-sm">
-                                    {{ user_data_form.user_image|as_crispy_field }}
+                                    {{ form.user_image|as_crispy_field }}
                                 </div>
                                 <div class="col-sm">
-                                    {{ user_data_form.nid_birth_reg_image|as_crispy_field }}
+                                    {{ form.nid_birth_reg_image|as_crispy_field }}
                                 </div>
 
                                 <div class="col-sm">
-                                    {{ user_data_form.electricity_bill_image|as_crispy_field }}
+                                    {{ form.electricity_bill_image|as_crispy_field }}
                                 </div>
 
                             </div>
@@ -341,7 +341,7 @@
 
                             <div class="row">
                                 <div class="col-sm text-center mt-4">
-                                    <button type="submit" class="btn btn-primary ">Submit Data</button>
+                                    <button type="submit" class="btn btn-primary ">Update Data</button>
                                 </div>
                             </div>
 
