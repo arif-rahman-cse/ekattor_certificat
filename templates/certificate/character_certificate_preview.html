@@ -1,0 +1,130 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'user-data-list' %}">Back</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Preview</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12 col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">বাংলা সংস্করণ</h4>
+                    </div>
+                    <div class="card-body watermark">
+
+                        <div class="certificate-info">
+                            <table style="border-collapse: collapse; width: 100%;" border="1">
+                                <tbody>
+                                <tr>
+                                    <td style="width: 33.3333%; border-style: hidden;"><img
+                                            src="https://i.postimg.cc/vB88sb6N/qrcode.png"
+                                            alt="" width="150" height="150"/>
+                                        <p>ক্রমিক নং: TUP0123</p>
+                                    </td>
+                                    <td style="width: 33.3333%; border-style: hidden;"><img
+                                            style="display: block; margin-left: auto; margin-right: auto;"
+                                            src="https://i.postimg.cc/K8Mvx0pt/bd-gov-logo.png" alt="" width="100"
+                                            height="100"/></td>
+                                    <td style="width: 33.3333%; border-style: hidden;">
+                                        <img style="float: right;"
+                                             src="{{user_data.user_image.url}}"
+                                             alt="" width="150"
+                                             height="150"/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h1 style="text-align: center;"><strong>১০ নং তারুন্দিয়া ইউনিয়ন পরিষদ</strong></h1>
+                            <p style="text-align: center;"><strong>কোনাপাড়া, ঈশ্বরগঞ্জ, ময়মনসিংহ</strong></p>
+                            <h2 style="text-align: center;"><strong>চারিত্রিক সনদ</strong></h2>
+                            <p>&nbsp;</p>
+                            <p style="text-align: justify;">এই মর্মে প্রত্যয়ন করা যাইতেছে যে, <strong>{{user_data.name_bn}}</strong>, জন্ম তারিখঃ <strong>{{user_data.date_of_birth}}</strong>, জাতীয় পরিচয় পত্র নম্বরঃ <strong>{{user_data.nid_no}}</strong>,
+                                পিতাঃ <strong>{{user_data.care_of_name_bn}}</strong>, মাতাঃ <strong>{{user_data.mother_name_bn}}। </strong>স্থায়ী
+                                ঠিকানাঃ- গ্রামঃ {{user_data.permanent_area_village_bn}}, ডাকঘরঃ {{user_data.permanent_post_office.name_bn}}, থানাঃ {{user_data.permanent_thana.name_bn}},
+                                জেলাঃ {{user_data.permanent_district.name_bn}}। বর্তমান ঠিকানাঃ- গ্রামঃ {{user_data.present_area_village_bn}}, ডাকঘরঃ {{user_data.present_post_office.name_bn}},
+                                থানাঃ {{user_data.present_thana.name_bn}}, জেলাঃ {{user_data.present_district.name_bn}}।
+                                আমার জানামতে সে আমার এলাকার একজন অস্থায়ী বাসিন্দা এবং বাংলাদেশের নাগরিক। তাহার স্বভাব চরিত্র ভাল। সে রাষ্ট্র পরিপন্থী বা দেশের আইন শৃঙ্খলা বিরোধী কোন কাজে লিপ্ত নহে।</p>
+                            <p>আমি তাহার সর্বাঙ্গীন সফলতা কামনা করছি।</p>
+                            <p>&nbsp;</p>
+                            <p>তারিখঃ ২২-০৪-২০২২</p>
+                        </div>
+
+                        <div class="text-center">
+
+                            <button type="button" class="btn light btn-success">Print Now
+                            </button>
+                            <button type="button" class="btn light btn-danger">Update</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">English Version</h4>
+                    </div>
+                    <div class="card-body watermark">
+                        <div class="certificate-info">
+                            <table style="border-collapse: collapse; width: 100%;" border="1">
+                                <tbody>
+                                <tr>
+                                    <td style="width: 33.3333%; border-style: hidden;"><img
+                                            src="https://i.postimg.cc/vB88sb6N/qrcode.png"
+                                            alt="" width="150" height="150"/>
+                                        <p>Serial No: TUP0123</p>
+                                    </td>
+                                    <td style="width: 33.3333%; border-style: hidden;"><img
+                                            style="display: block; margin-left: auto; margin-right: auto;"
+                                            src="https://i.postimg.cc/K8Mvx0pt/bd-gov-logo.png" alt="" width="100"
+                                            height="100"/></td>
+                                    <td style="width: 33.3333%; border-style: hidden;">
+                                        <img style="float: right;"
+                                             src="{{user_data.user_image.url}}"
+                                             alt="" width="150"
+                                             height="150"/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h1 style="text-align: center;"><strong>No. 10 Tarundia Union Parishad</strong></h1>
+                            <p style="text-align: center;"><strong>Konapara, Ishwarganj, Mymensingh</strong></p>
+                            <h2 style="text-align: center;"><strong>Certificate of Character</strong></h2>
+                            <p>&nbsp;</p>
+                            <p style="text-align: justify;">It is being certified that, <strong>{{user_data.name_en}}</strong>, Date of Birth: <strong>{{user_data.date_of_birth}}</strong>, National Identity Card Number:
+                                <strong>{{user_data.nid_no}}</strong>,
+                                Father: <strong>{{user_data.care_of_name_en}}</strong>, Mother: <strong>{{user_data.mother_name_en}}. </strong>Permanent
+                                Address: - Village: {{user_data.permanent_area_village_en}}, Post Office: {{user_data.permanent_post_office}}, Police Station:
+                                {{user_data.permanent_thana}}, District: {{user_data.permanent_district}}. Current Address: Village: {{user_data.present_area_village_en}}, Post Office:
+                                {{user_data.present_post_office}}, Police Station: {{user_data.present_thana}}, District: {{user_data.present_district}}. As far as I know, he is a
+                                temporary resident of my area and a citizen of Bangladesh. His character is good. He is
+                                not involved in any anti-state or anti-law and order activities in the country.</p>
+                            <p>I wish him all the best.</p>
+                            <p>&nbsp;</p>
+                            <p>Date: 24-04-2022</p>
+                        </div>
+
+                        <div class="text-center">
+
+                            <button type="button" class="btn light btn-success">Print Now</button>
+                            <button type="button" class="btn light btn-danger">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

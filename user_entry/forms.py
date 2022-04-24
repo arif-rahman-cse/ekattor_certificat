@@ -249,7 +249,7 @@ class UserEntryUpdateForm(forms.ModelForm):
 
             # Document
             'nid_birth_reg_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'user_image': forms.FileInput(attrs={'class': 'form-control'}),
+            'user_image': forms.FileInput(attrs={'required': True, 'class': 'form-control'}),
             'electricity_bill_image': forms.FileInput(attrs={'class': 'form-control'}),
 
         }

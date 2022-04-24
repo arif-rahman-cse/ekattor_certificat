@@ -25,6 +25,7 @@ urlpatterns = [
                   path('', include('dashboard.urls')),
                   path('user_entry/', include('user_entry.urls')),
                   path('geo-data-bd/', include('GeoCodeBD.urls')),
+                  path('certificate/', include('certificate.urls')),
 
                   path('login/', auth_views.LoginView.as_view(template_name='login/login_page.html'), name='login'),
                   path('login/', auth_views.LogoutView.as_view(template_name='login/login_page.html'), name='logout'),

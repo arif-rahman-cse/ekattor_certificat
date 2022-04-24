@@ -2,3 +2,4 @@ django
 django-crispy-forms
 Pillow
 djangorestframework
+xhtml2pdf

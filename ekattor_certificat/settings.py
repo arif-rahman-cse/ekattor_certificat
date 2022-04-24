@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dashboard',
     'user_entry',
     'GeoCodeBD',
+    'certificate',
 
     # Third Party
     'crispy_forms',

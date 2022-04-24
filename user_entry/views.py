@@ -1,3 +1,4 @@
+import bangla
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -10,6 +11,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView
 
 from GeoCodeBD.models import District, Upazila
+from certificate.models import Certificate
 from user_entry.forms import UserEntryCreateForm, UserEntryUpdateForm
 from user_entry.models import UserEntry
 
@@ -77,9 +79,11 @@ class UserDataUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 @login_required
 def user_profile_preview(request, pk):
     template_name = 'user_entry/user_profile_page.html'
+    user_data = UserEntry.objects.get(pk=pk)
 
     return render(request, template_name, {
-        'user_data': UserEntry.objects.get(pk=pk),
+        'user_data': user_data,
+        'certificate': Certificate.objects.all(),
         'title': 'User Profile Preview',
         'nav_bar': 'user_profile_preview'
     })

@@ -31010,3 +31010,15 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.watermark {
+
+  background-image: url('https://i.postimg.cc/pXSH6KZ4/character-certificate.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.certificate-info{
+  font-family: 'Galada', cursive;
+  }
+
